@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pandas
+pinecone
+torch
+transformers
+sentence-transformers
+Pillow
+requests
+tqdm
+langchain
+langchain-huggingface
+accelerate
+bitsandbytes
