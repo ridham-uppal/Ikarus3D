@@ -91,3 +91,55 @@ Follow these steps to set up and run the project locally.
 ```bash
 git clone <your-repository-url>
 cd ikarus-project
+2. Set Up the Backend
+Create a Virtual Environment:
+python -m venv venv
+source venv/bin/activate # On Windows: venv\Scripts\activate
+
+Install Dependencies:
+pip install -r backend/requirements.txt
+
+Set Up Environment Variables:
+
+Create a .env file inside the backend/ directory.
+Add your Pinecone API key to this file:
+PINECONE_API_KEY="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+3. Set Up the Frontend
+Navigate to the Frontend Directory:
+cd frontend
+
+Install Dependencies:
+npm install
+
+Running the Application
+The application requires three main steps to run: populating the database, starting the backend, and starting the frontend.
+
+Step 1: Run the ML Notebook
+You must first run the model_training.ipynb notebook to process the dataset and populate your Pinecone vector database.
+
+Open the notebooks/ directory.
+Run all cells in model_training.ipynb. This will:
+Load the dataset from data/.
+Download the required AI models.
+Generate embeddings for all products.
+Connect to your Pinecone account and upload the embeddings.
+Note: This process can take a significant amount of time, depending on your hardware.
+Step 2: Start the Backend Server
+Navigate to the backend/ directory.
+
+Make sure your Python virtual environment is activated.
+
+Start the FastAPI server using Uvicorn:
+uvicorn app.main:app --reload
+
+The backend API will now be running at http://1227.0.0.1:8000.
+
+Step 3: Start the Frontend Application
+Open a new terminal and navigate to the frontend/ directory.
+
+Start the React development server:
+npm start
+
+The application will automatically open in your browser at http://localhost:3000.
+
+You can now interact with the web app, search for products, and view the analytics dashboard!
